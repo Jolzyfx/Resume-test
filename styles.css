@@ -1,0 +1,250 @@
+:root{
+    --accent-color:black;
+}
+
+* {
+    box-sizing: border-box;
+    
+}
+
+nav a:hover{
+    text-decoration: none;
+    background-color: lightgreen;
+    transition: .6s;
+
+}
+
+body {
+    font-size: 16px;
+    color: whitesmoke;
+    display:grid;
+    margin-inline:0;
+    margin-block:0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,h2{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
+
+nav a {
+    text-decoration: underline;
+}
+
+nav {
+    position: sticky;
+    inset-inline-start: 0;
+    background-color:  rgb(225, 165, 0);
+    display: flex;
+    justify-content: right;
+    padding-inline-start: 4;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0.25rem;
+    margin-inline: .25rem;
+    margin-block: 0;
+    line-height: 1.5rem;
+    list-style: circle;
+    position:sticky;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline: 0;
+}
+
+main {
+    padding-block:0;
+    margin-block:0;
+    display: grid;
+    grid-template-columns:25px 1fr 25px;
+}
+main > *{
+    grid-column: 2;
+}
+
+.full-bleed{
+     grid-column:1 / span 3;
+     padding-inline:2rem ;
+
+
+}
+.flex-header, .motto, #aboutme footer{
+    flex-basis: 100%;
+}
+
+#testimonials blockquote {
+    border-inline: solid 1px whitesmoke;
+    border-block: solid 1px whitesmoke;
+    padding-inline: 0.5rem;
+    padding-block: 0;
+    margin-inline: 0;
+    margin-block: 0.5rem
+}
+#portfolio{
+    display:grid;
+    
+                           grid-template:1fr/1fr 1fr ;
+        grid-template-areas:  "portfolio  portfolio"
+                               "anchor img1";
+
+    grid-gap:10px;
+    align-items:end ;
+    margin-block: 0;
+    background-color: var(--accent-color);
+}  
+#portfolio h2{
+    grid-area: portfolio;
+}  
+
+#portfolio img{
+    max-inline-size: 100%;
+}
+#portfolio img:hover{
+    opacity:0.5 ;
+    transition: opacity 0.5s;
+    
+}
+
+img.anchor{
+     grid-area: anchor;
+}
+
+
+#testimonials h2{
+    order: -2;
+}
+
+ #testimonials blockquote.featured{
+    order: -1;
+    flex: 1 0 auto;
+    background-color: lightgreen;
+    color:black;
+    margin-inline-start: 1rem;
+    font-weight: bold;
+}
+
+#testimonials {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+
+}
+
+.fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fieldset {
+    padding: 0;
+}
+
+/* z-index testing */
+nav ul {
+    z-index: index 1;
+    background-color: rgb(225, 165, 0);
+}
+
+.label-standard {
+    display: block;
+    margin-inline: 0.125rem;
+    margin-block: 0.125rem;
+}
+
+.field {
+    margin-block-end: 1.25rem;
+}
+
+.my-picture {
+    max-inline-size: 100px;
+    margin-inline-end: 0;
+}
+
+
+
+#aboutme {
+    background-color: lightgreen;
+    color: black;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    
+}
+#aboutme footer{
+    text-align: center;
+}
+
+#aboutme footer a, #aboutme footer a:visited, #aboutme footer a:hover{
+    color: darkred;
+}
+
+#aboutme aside {
+    order: 10;
+    text-align: center;
+    color:var(--test-color);
+}
+.logo{
+    width: 280px;
+    height: 300px;
+    cursor:pointer;
+    z-index: index 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-bottom: 220px;
+    padding-top:0 ;
+}
+.button{
+    background-color:aqua ;
+    color: black;
+    font-family: 'Montserrat',sans-serif;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    border-inline:none;
+    border-block: none;
+}
+.button:hover{
+    background-color:pink;
+    transition: background-color .5s;
+}
+.social_logo{
+    inline-size: 1.5rem;
+}
+
+@media screen and (max-width: 767.98px){
+    main{
+        grid-template-columns: 50px 1fr 50px;
+    }
+
+    #aboutme {
+        justify-content: initial;
+        text-align: initial;
+    }
+    .my-picture{
+        margin-inline-end: 1rem;
+    }
+    #portfolio{
+    grid-template: repeat(2 , 1fr)/repeat(5, 1fr);
+    grid-template-areas:   "portfolio anchor img1 img2 img3"
+                           "portfolio anchor img4 img5 img6";
+    }
+}
+@media screen and (min-width:1200px){
+      main{
+          grid-template-columns: 1fr 900px 1fr;
+      }
+
+      .full-bleed{
+          padding-inline:15px;
+      }
+}
